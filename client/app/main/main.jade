@@ -1,0 +1,39 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+header#banner.hero-unit
+  .container
+    h1 Bärner JS Talks
+    p.lead Node.js insights, Edi Spring from Lambda IT
+    
+.container
+  .row
+    .col-lg-12
+      h1.page-header Features:
+      ul.nav.nav-tabs.nav-stacked
+        li(ng-repeat='thing in awesomeThings')
+          a(href='#', tooltip='{{thing.info}}')
+            | {{thing.name}}
+            button.close(type='button', ng-click='deleteThing(thing)') ×
+
+  form.thing-form
+    label Add new topics
+    p.input-group
+      input.form-control(type='text', placeholder='Add a new topic here.', ng-model='newThing')
+      span.input-group-btn
+        button.btn.btn-primary(type='submit', ng-click='addThing()') Add New
+
+.container
+  .row
+    .col-lg-12
+      h2 JavaScript, Bern Tweets (live)
+      ul.nav.nav-tabs.nav-stacked
+        li(ng-repeat='tweet in tweets')
+        | {{tweet.text}}
+       
+
+footer.footer
+  .container
+    p
+      | Bärner JS Talks, 16.09.2015 powered by angular-fullstack
+      = ' | '
+      a(href='https://twitter.com/edi_spring') @edi_spring
